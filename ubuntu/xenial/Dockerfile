@@ -1,9 +1,11 @@
 FROM ubuntu:xenial
 
-ENV QT_VERSION 5.10
+ENV QT_MAJOR_VERSION 5.10
+ENV QT_MINOR_VERSION 1
+ENV QT_VERSION $QT_MAJOR_VERSION.$QT_MINOR_VERSION
 
 COPY ./qt-installer.js /qt-installer/
-ADD http://download.qt.io/official_releases/qt/5.10/5.10.1/qt-opensource-linux-x64-5.10.1.run /qt-installer/
+ADD http://download.qt.io/official_releases/qt/$QT_MAJOR_VERSION/$QT_VERSION/qt-opensource-linux-x64-$QT_VERSION.run /qt-installer/
 
 RUN \
   apt-get update && \
@@ -12,7 +14,7 @@ RUN \
   apt-get update && \
   apt-get install -y build-essential && \
   apt-get clean && \
-  chmod +x /qt-installer/qt-opensource-linux-x64-5.10.1.run && \
-  /qt-installer/qt-opensource-linux-x64-5.10.1.run --platform minimal --verbose --script /qt-installer/qt-installer.js
+  chmod +x /qt-installer/qt-opensource-linux-x64-$QT_VERSION.run && \
+  /qt-installer/qt-opensource-linux-x64-$QT_VERSION.run --platform minimal --verbose --script /qt-installer/qt-installer.js
 
-ENV PATH /lib/qt5/5.10.1/gcc_64/bin:$PATH
+ENV PATH /lib/qt5/$QT_VERSION/gcc_64/bin:$PATH
