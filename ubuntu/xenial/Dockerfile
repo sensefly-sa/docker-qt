@@ -1,5 +1,7 @@
 FROM ubuntu:xenial
 
+ENV QT_VERSION 5.10
+
 COPY ./qt-installer.js /qt-installer/
 ADD http://download.qt.io/official_releases/qt/5.10/5.10.1/qt-opensource-linux-x64-5.10.1.run /qt-installer/
 
