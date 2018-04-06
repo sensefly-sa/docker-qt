@@ -22,6 +22,6 @@ RUN \
   rm -rf /lib/qt5/Docs && \
   rm -rf /lib/qt5/Examples && \
   rm -rf /lib/qt5/Tools && \
-  rm -rf /lib/qt5/MaintenanceTool
+  rm -rf /lib/qt5/MaintenanceTool*
 
 ENV PATH /lib/qt5/$QT_VERSION/gcc_64/bin:$PATH
