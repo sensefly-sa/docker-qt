@@ -17,6 +17,11 @@ RUN \
     libfontconfig1 && \
   apt-get clean && \
   chmod +x /qt-installer/qt-opensource-linux-x64-$QT_VERSION.run && \
-  /qt-installer/qt-opensource-linux-x64-$QT_VERSION.run --platform minimal --verbose --script /qt-installer/qt-installer.js
+  /qt-installer/qt-opensource-linux-x64-$QT_VERSION.run --platform minimal --verbose --script /qt-installer/qt-installer.js && \
+  rm -rf /qt-installer && \
+  rm -rf /lib/qt5/Docs && \
+  rm -rf /lib/qt5/Examples && \
+  rm -rf /lib/qt5/Tools && \
+  rm -rf /lib/qt5/MaintenanceTool
 
 ENV PATH /lib/qt5/$QT_VERSION/gcc_64/bin:$PATH
