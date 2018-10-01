@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM ubuntu:bionic
 
 ENV QT_MAJOR_VERSION 5.11
 ENV QT_MINOR_VERSION 2
