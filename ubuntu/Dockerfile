@@ -5,7 +5,7 @@ ENV QT_MINOR_VERSION 2
 ENV QT_VERSION $QT_MAJOR_VERSION.$QT_MINOR_VERSION
 
 COPY ./qt-installer.js /qt-installer/
-ADD http://download.qt.io/official_releases/qt/$QT_MAJOR_VERSION/$QT_VERSION/qt-opensource-linux-x64-$QT_VERSION.run /qt-installer/
+ADD http://download.qt.io/archive/qt/$QT_MAJOR_VERSION/$QT_VERSION/qt-opensource-linux-x64-$QT_VERSION.run /qt-installer/
 
 RUN \
   chmod +x /qt-installer/qt-opensource-linux-x64-$QT_VERSION.run && \
